@@ -1,17 +1,34 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import { createBrowserRouter, createRoutesFromElements, Navigate, Route, RouterProvider } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import Layout from './Layout/Layout';
+import Home from './Components/Home/Home';
+
+// import JobGrid from './Components/JobGrid/JobGrid';
+// import JobListingApp from './Components/JobListingapp/JobListingApp';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        {/* <Route path="/search-jobs" element={<JobListingApp />} />
+        <Route path="/post-job" element={<JobGrid />} /> */}
+      </Route>
+    </>
+  )
+);
+
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
