@@ -58,7 +58,7 @@ const AnimatedHeading = () => {
           className={`relative ${
             isHeading
               ? "text-2xl md:text-4xl lg:text-5xl font-bold text-white leading-tight"
-              : "text-sm sm:text-base md:text-lg text-gray-600 mt-6 tracking-wide"
+              : "text-sm sm:text-base md:text-lg text-gray-100 mt-6 tracking-wide"
           }`}
         >
           {chars.map((char, charIndex) => {
@@ -150,7 +150,7 @@ const Home = () => {
     <>
       <div id="hero-section">
         <div
-          className="relative min-h-screen rounded-bl-3xl rounded-br-3xl lg:mb-6  overflow-hidden font-['Space_Grotesk',_sans-serif] text-center"
+          className="relative min-h-screen rounded-bl-3xl rounded-br-3xl lg:mb-6 overflow-hidden font-['Space_Grotesk',_sans-serif] text-center"
           style={{
             backgroundImage: "url('/images/bg.jpg')",
             backgroundSize: "cover",
@@ -159,13 +159,12 @@ const Home = () => {
             position: "relative",
           }}
         >
-          {/* Dark shadow overlay */}
           <div
-            className="absolute inset-0 z-0"
+            className="absolute inset-0  z-0"
             style={{
-  background:
-    "linear-gradient(to top, rgba(5, 6, 8, 0.95), rgba(8, 10, 12, 0.7), rgba(12, 14, 16, 0))",
-}}
+              background:
+                "linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1))",
+            }}
           >
             <div className="relative rounded-bl-lg rounded-br-lg flex flex-col items-center w-full max-w-4xl mx-auto pt-16 md:pt-24 lg:pt-32 z-10">
               <AnimatedHeading />
@@ -182,7 +181,7 @@ const Home = () => {
         </div>
       </div>
 
-      <footer className="absolute bottom-6  left-6 z-10">
+      <footer className="absolute bottom-6 left-6 z-10">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
@@ -198,6 +197,7 @@ const Home = () => {
           <path d="M12 5v14M5 12l7 7 7-7" />
         </svg>
       </footer>
+
       <section id="jobs-section">
         <JobListingApp />
       </section>
