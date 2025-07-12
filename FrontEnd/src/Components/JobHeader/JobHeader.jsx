@@ -24,9 +24,9 @@ const JobHeader = ({
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
       {/* Main Header */}
-      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-6">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-6 ">
         <div>
-          <h1 className="font-grotesk font-bold text-3xl text-darkGray mb-2">
+          <h1 className="font-grotesk font-bold text-2xl text-darkGray mb-2">
             Find Your Dream Job
           </h1>
           <p className="text-gray-600 flex items-center">
