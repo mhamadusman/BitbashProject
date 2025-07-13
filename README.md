@@ -45,7 +45,7 @@ A full-stack job listing web application with a **React.js frontend** and a **Fl
 #  Flask 3.1.1
 # -Werkzeug 3.1.3
 
-git clone https://github.com/your-username/job-listing-app.git
+git clone https://github.com/mhamadusman/BitbashProject
 cd job-listing-app
 
 cd FrontEnd
