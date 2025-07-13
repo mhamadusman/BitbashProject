@@ -2,6 +2,12 @@
 
 A full-stack job listing web application with a **React.js frontend** and a **Flask RESTful API backend**. It allows job listings to be added, fetched, updated, and deleted. The backend is connected to a SQLite database and can be populated using a Selenium-based scraper.
 
+# video links 
+### backend link 
+- https://drive.google.com/file/d/1PHg27hlvC41NU4iZW2rXQbp33Sbn7XHx/view?usp=drive_link
+### front end 
+- https://drive.google.com/file/d/1svWRuuUY-Wp9_f7N6vzCdusgi5TNiNQa/view?usp=drive_link
+
 ---
 
 ## Tech Stack
