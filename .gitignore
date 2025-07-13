@@ -14,9 +14,11 @@ __pycache__/
 *.pyo
 *.pyd
 
+
+
 # Ignore Python virtual environment (inside backend folder)
 backend/env/
-
+backend/instance/*.db
 # === OS-specific files ===
 .DS_Store
 Thumbs.db
