@@ -28,6 +28,29 @@ const Navbar = ({
   const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
+  const [searchInputKey, setSearchInputKey] = useState(0); // Add key for search input
+
+  // Enhanced search function for multiple keywords
+  const matchesSearch = (job, searchQuery) => {
+    if (!searchQuery || searchQuery.trim() === "") return true;
+    
+    // Split search query into individual keywords and filter out empty strings
+    const keywords = searchQuery.toLowerCase().split(/\s+/).filter(keyword => keyword.length > 0);
+    
+    // Create searchable text from job properties
+    const searchableText = [
+      job.title,
+      job.company,
+      job.location,
+      job.country,
+      job.job_type,
+      job.description,
+      ...(job.tags || [])
+    ].join(" ").toLowerCase();
+    
+    // Check if ALL keywords are found in the searchable text
+    return keywords.every(keyword => searchableText.includes(keyword));
+  };
 
   // Extract unique job types from real data
   const getUniqueJobTypes = () => {
@@ -55,20 +78,24 @@ const Navbar = ({
     return [...new Set(allTags)].filter(Boolean);
   };
 
-  // Get count of jobs for each job type
+  // Get count of jobs for each job type (considering current search)
   const getJobTypeCount = (type) => {
-    return jobsData.filter((job) => job.job_type === type).length;
+    return jobsData.filter((job) => 
+      job.job_type === type && matchesSearch(job, filters.searchQuery)
+    ).length;
   };
 
-  // Get count of jobs for each location
+  // Get count of jobs for each location (considering current search)
   const getLocationCount = (location) => {
-    return jobsData.filter((job) => job.location === location).length;
+    return jobsData.filter((job) => 
+      job.location === location && matchesSearch(job, filters.searchQuery)
+    ).length;
   };
 
-  // Get count of jobs for each tag
+  // Get count of jobs for each tag (considering current search)
   const getTagCount = (tag) => {
     return jobsData.filter(
-      (job) => job.tags && job.tags.some((jobTag) => jobTag.trim() === tag)
+      (job) => job.tags && job.tags.some((jobTag) => jobTag.trim() === tag) && matchesSearch(job, filters.searchQuery)
     ).length;
   };
 
@@ -113,6 +140,11 @@ const Navbar = ({
       document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen, isFilterMenuOpen]);
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    onFilterChange("searchQuery", value);
+  };
 
   const handleTagToggle = (tag) => {
     const currentTags = filters.tags || [];
@@ -166,12 +198,19 @@ const Navbar = ({
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
             <input
               type="text"
-              placeholder="Job title, company, or keywords..."
+              placeholder="Job title, company, keywords... (e.g., 'react developer remote')"
               value={filters.searchQuery || ""}
-              onChange={(e) => onFilterChange("searchQuery", e.target.value)}
+              onChange={handleSearchChange}
+              autoComplete="off"
+              spellCheck="false"
               className="w-full pl-10 pr-4 py-3 border border-green-200 rounded-lg outline-none transition-all duration-300 placeholder:text-sm placeholder:font-poppins"
             />
           </div>
+          {filters.searchQuery && (
+            <p className="text-xs text-gray-500 mt-1 ml-1 font-poppins">
+              Tip: Use multiple keywords for better results (e.g., "react developer remote")
+            </p>
+          )}
         </div>
 
         {/* Location */}

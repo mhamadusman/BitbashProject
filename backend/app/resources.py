@@ -3,20 +3,12 @@ from flask_restful  import Resource
 from .models import Job
 from app import db
 
-class JobListResource(Resource):
-  from flask import request
-from flask_restful import Resource
-from .models import Job
 
 class JobListResource(Resource):
     def get(self):
         job_type = request.args.get('job_type')
         location = request.args.get('location')
-        tags = request.args.getlist('tag')  # ?tag=AI&tag=ML
-        print ("tags are")
-        for t in tags:
-            print (t)
-        sort = request.args.get('sort')     # e.g., posting_date_desc
+        tags = request.args.getlist('tag')  # e.g., ?tag=AI&tag=ML
 
         query = Job.query
 
@@ -27,19 +19,17 @@ class JobListResource(Resource):
         if tags:
             for tag in tags:
                 query = query.filter(Job.tags.like(f"%{tag}%"))
-        if sort == 'posting_date_desc':
-            query = query.order_by(Job.posting_date.desc())
 
-        job_list = []
-        for job in query.all():
-            if job:
-                job_list.append(job.to_dict())
+        query = query.order_by(Job.id.desc())
+
+        job_list = [job.to_dict() for job in query.all()]
 
         if not job_list:
-            return {"message : not matching any filter"}, 200
+            return {"message": "No matching jobs found."}, 200
 
-        
-        return job_list, 200  # ✅ good practice to include status code
+        return job_list, 200
+
+
 
             
     def post(self):

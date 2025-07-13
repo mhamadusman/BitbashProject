@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import JobCard from './JobCard';
 import JobPostingForm from './JobPostingForm';
-import jobService from '../Services/jobServices';
-
-const JobList = ({ jobs }) => {
+import { useEffect } from 'react';
+const JobList = ({ jobs, j }) => {
   const [showForm, setShowForm] = useState(false);
   const [jobToEdit, setJobToEdit] = useState(null);
+
+  useEffect (() =>{
+    console.log("printing data from jonlist" , j)
+  }, []);
 
   const handleEdit = (job) => {
     setJobToEdit(job);
     setShowForm(true);
   };
 
-  const handleDelete = async (id) =>{
-    
-  }
+
   const handleCloseForm = () => {
     setJobToEdit(null);
     setShowForm(false);
@@ -35,8 +36,8 @@ const JobList = ({ jobs }) => {
         )}
       </div>
 
-      {showForm && (
-        <JobPostingForm onClose={handleCloseForm} jobToEdit={jobToEdit} />
+      {showForm &&  (
+        <JobPostingForm onClose={handleCloseForm} jobToEdit={jobToEdit} Alljobs={j} />
       )}
     </>
   );

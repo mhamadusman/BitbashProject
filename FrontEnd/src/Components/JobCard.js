@@ -80,6 +80,8 @@ const JobCard = ({ job, onEdit }) => {
         <div className="flex items-center text-gray-800">
           <MapPin className="w-4 h-4 mr-2 text-[#4BCA7B]" />
           <span className="font-poppins text-sm">{job.location}</span>
+          <span className="font-poppins ml-2 text-sm">{job.country}</span>
+
         </div>
         <div className="flex items-center justify-between">
           <span className="font-poppins px-2 py-1 rounded-full text-xs font-medium bg-[#4BCA7B]/10 text-gray-800 text-[#4BCA7B]">

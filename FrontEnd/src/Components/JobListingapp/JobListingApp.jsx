@@ -177,7 +177,7 @@ const JobListingApp = () => {
 
             {/* ✅ Green scrollbar only on lg screens */}
             <div className="max-h-[115vh] overflow-y-auto scrollbar-none lg:scrollbar-thin lg:scrollbar-thumb-[#4BCA7B] lg:scrollbar-track-gray-100">
-              <JobList jobs={filteredAndSortedJobs} />
+              <JobList jobs={filteredAndSortedJobs} j = {data} />
             </div>
           </div>
         </div>

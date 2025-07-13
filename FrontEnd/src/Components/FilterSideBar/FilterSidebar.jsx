@@ -51,7 +51,9 @@ const FilterSidebar = ({
   const getLocationCount = (location) => {
     return jobsData.filter((job) => job.location === location).length;
   };
-
+  const getCountryCount = (country) => {
+    return jobsData.filter((job) => job.country === country).length;
+  };
   // Get count of jobs for each tag
   const getTagCount = (tag) => {
     return jobsData.filter(
@@ -147,7 +149,9 @@ const FilterSidebar = ({
                 <option value="">All Countries</option>
                 {countries.map((country) => (
                   <option key={country} value={country}>
-                    {country}
+                    {country}{" "}
+                    {jobsData.length > 0 && `(${getCountryCount(country)})`}
+
                   </option>
                 ))}
               </select>
