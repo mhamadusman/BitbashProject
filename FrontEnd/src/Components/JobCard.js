@@ -100,7 +100,7 @@ const JobCard = ({ job, onEdit }) => {
         ))}
       </div>
 
-      <div className="flex lg:justify-end space-x-3 justify-center">
+      <div className="flex lg:justify-end space-x-3 justify-start">
         <button className="font-poppins px-3 py-1 bg-green-500 text-white rounded-full font-medium hover:bg-green-600 transition-colors duration-300">
           Apply Now
         </button>

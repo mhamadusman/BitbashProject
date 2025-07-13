@@ -1,23 +1,38 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
+# === Node.js (Frontend) ===
+node_modules/
+build/
+dist/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+.env
+.env.*.local
+
+# === Python (Backend) ===
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Ignore Python virtual environment (inside backend folder)
+backend/env/
+
+# === OS-specific files ===
+.DS_Store
+Thumbs.db
+
+# === Testing ===
+coverage/
+
+# === Editor-specific ===
+.vscode/
+.idea/
+*.swp
+
+# === Misc ===
+.pnp/
+.pnp.js
+
+# === Logs ===
+*.log
+logs/

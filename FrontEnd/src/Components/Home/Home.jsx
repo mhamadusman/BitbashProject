@@ -263,7 +263,7 @@ const Home = () => {
     <>
       <div id="hero-section">
         <div
-          className="relative min-h-screen rounded-bl-3xl rounded-br-3xl lg:mb-6 overflow-hidden font-['Space_Grotesk',_sans-serif] text-center"
+          className="relative min-h-screen rounded-bl-3xl rounded-br-3xl lg:mb-6 mb-6  overflow-hidden font-['Space_Grotesk',_sans-serif] text-center"
           style={{
             backgroundImage: "url('/images/bg.jpg')",
             backgroundSize: "cover",

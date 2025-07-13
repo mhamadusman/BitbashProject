@@ -153,9 +153,11 @@ const JobListingApp = () => {
         onClearFilters={clearFilters}
         sortBy={sortBy}
         setSortBy={setSortBy}
+        jobsData={data}
+
       />
 
-      <div className="max-w-7xl mx-auto px-4 py-20">
+      <div className="max-w-7xl mx-auto px-4 lg:py-10">
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Sidebar only on large screens */}
           <div className="hidden lg:block lg:w-80">
@@ -174,7 +176,7 @@ const JobListingApp = () => {
             <ActiveFilters filters={filters} onClearFilters={clearFilters} />
 
             {/* ✅ Green scrollbar only on lg screens */}
-            <div className="max-h-[119vh] overflow-y-auto scrollbar-none lg:scrollbar-thin lg:scrollbar-thumb-[#4BCA7B] lg:scrollbar-track-gray-100">
+            <div className="max-h-[115vh] overflow-y-auto scrollbar-none lg:scrollbar-thin lg:scrollbar-thumb-[#4BCA7B] lg:scrollbar-track-gray-100">
               <JobList jobs={filteredAndSortedJobs} />
             </div>
           </div>
