@@ -4,10 +4,9 @@ A full-stack job listing web application with a **React.js frontend** and a **Fl
 
 # video links 
 ### backend link 
-- https://drive.google.com/file/d/1PHg27hlvC41NU4iZW2rXQbp33Sbn7XHx/view?usp=drive_link
+- https://drive.google.com/file/d/1PHg27hlvC41NU4iZW2rXQbp33Sbn7XHx/view?usp=drivesdk
 ### front end 
-- https://drive.google.com/file/d/1svWRuuUY-Wp9_f7N6vzCdusgi5TNiNQa/view?usp=drive_link
-
+- https://drive.google.com/file/d/1svWRuuUY-Wp9_f7N6vzCdusgi5TNiNQa/view?usp=drivesdk
 ---
 
 ## Tech Stack
